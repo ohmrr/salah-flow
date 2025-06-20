@@ -1,13 +1,14 @@
 import { Footer } from "@/components/Footer";
-import { calculatePrayerTimes, Prayers } from "@/utils/calculatePrayerTimes";
+import { calculatePrayerTimes, Prayer } from "@/utils/calculatePrayerTimes";
 import { Coordinates } from "adhan";
+import { PrayerGrid } from "@/components/PrayerGrid";
 import moment from "moment-timezone";
 import { useEffect, useState } from "react";
 import "./App.css";
 
 export function App() {
   const [location, setLocation] = useState<Coordinates | null>(null);
-  const [prayerTimes, setPrayerTimes] = useState<Prayers[] | null>(null);
+  const [prayerTimes, setPrayerTimes] = useState<Prayer[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -50,18 +51,7 @@ export function App() {
           </div>
         </div>
 
-        <ul className="grid grid-cols-1 pb-4 gap-4 mt-4 text-sm">
-          {prayerTimes?.map((prayer) => (
-            <li
-              key={prayer.name}
-              className="flex items-center justify-between bg-gray-800 rounded-xl shadow-xl p-4"
-            >
-              <span className="font-medium capitalize">{prayer.name}</span>
-              <span className="font-mono">{prayer.time}</span>
-            </li>
-          ))}
-        </ul>
-
+        <PrayerGrid prayers={prayerTimes} error={error} />
         <Footer />
       </div>
     </>

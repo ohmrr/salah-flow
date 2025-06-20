@@ -11,6 +11,6 @@ export default defineConfig({
   manifest: {
     name: 'SalahExt',
     description: "A chrome and firefox extension meant to help with salah reminders.",
-    permissions: ['geolocation']
+    permissions: ['geolocation'],
   }
 });

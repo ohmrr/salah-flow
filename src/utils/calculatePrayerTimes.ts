@@ -1,15 +1,15 @@
 import { CalculationMethod, Coordinates, PrayerTimes } from "adhan";
 import moment from "moment-timezone";
 
-export type PrayerNames = 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha';
+export type PrayerName = 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha';
 
-export interface Prayers {
-  name: PrayerNames;
+export interface Prayer {
+  name: PrayerName;
   time: string;
 }
 
 export function calculatePrayerTimes(coordinates: Coordinates): Prayers[] {
-  const prayerNames: PrayerNames[] = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha']
+  const prayerNames: PrayerName[] = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha']
   const params = CalculationMethod.NorthAmerica();
 
   const today = new Date();
