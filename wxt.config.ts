@@ -6,11 +6,12 @@ export default defineConfig({
   srcDir: 'src',
   modules: ['@wxt-dev/module-react'],
   vite: () => ({
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   }),
   manifest: {
     name: 'SalahExt',
-    description: "A chrome and firefox extension meant to help with salah reminders.",
-    permissions: ['geolocation'],
-  }
+    description:
+      'A chrome and firefox extension meant to help with salah reminders.',
+    permissions: ['geolocation', 'notifications'],
+  },
 });

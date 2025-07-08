@@ -1,10 +1,9 @@
-import { Footer } from "@/components/Footer";
-import { calculatePrayerTimes, Prayer } from "@/utils/calculatePrayerTimes";
-import { Coordinates } from "adhan";
-import { PrayerGrid } from "@/components/PrayerGrid";
-import moment from "moment-timezone";
-import { useEffect, useState } from "react";
-import "./App.css";
+import { Footer } from '@/components/Footer';
+import { calculatePrayerTimes, Prayer } from '@/utils/calculatePrayerTimes';
+import { Coordinates } from 'adhan';
+import { PrayerGrid } from '@/components/PrayerGrid';
+import moment from 'moment-timezone';
+import './App.css';
 
 export function App() {
   const [location, setLocation] = useState<Coordinates | null>(null);
@@ -13,7 +12,7 @@ export function App() {
 
   useEffect(() => {
     if (!navigator.geolocation) {
-      setError("Missing access to geolocation services.");
+      setError('Missing access to geolocation services.');
       return;
     }
 
@@ -25,9 +24,9 @@ export function App() {
       },
       () => {
         setError(
-          "Unable to retrieve your location. Please allow location access."
+          'Unable to retrieve your location. Please allow location access.',
         );
-      }
+      },
     );
   }, []);
 
@@ -40,14 +39,14 @@ export function App() {
 
   return (
     <>
-      <div className="py-3">
-        <div className="flex flex-col items-center pb-2">
-          <h1 className="text-4xl font-extrabold tracking-tight">
+      <div className='py-3'>
+        <div className='flex flex-col items-center pb-2'>
+          <h1 className='text-4xl font-extrabold tracking-tight'>
             SalahFlow 🕌
           </h1>
 
-          <div className="mt-2 text-sm text-gray-300">
-            <p>{moment(new Date()).format("dddd, MMMM Do YYYY")}</p>
+          <div className='mt-2 text-sm text-gray-300'>
+            <p>{moment(new Date()).format('dddd, MMMM Do YYYY')}</p>
           </div>
         </div>
 
